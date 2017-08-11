@@ -1,0 +1,28 @@
+﻿方法一:
+1.在GitHub上创建项目
+2.使用 git clone git@github.com:ZhuWenTong/RESUME.git
+3.编辑
+4.git add (文件名)
+5.git commit -m '说明'
+6.git push origin master
+
+方法二:
+1.创建文件夹
+2.git init
+3.echo "# 项目名" >> README.md
+4.git add README.md
+5.git commit -m '说明'
+6.git remote add origin https://github.com/ZhuWenTong/RESUME
+7.git push -u origin master 			//第一次推送
+
+方法三:
+1.git pull 					//得到最新代码
+2.git checkout -b (分支名)			//创建分支
+3.git status //查看当前项目一些状态
+4.git add (文件名)
+5.git commit -m '说明'
+6.git checkout master 				//回到分支
+7.git pull
+8.git merge (分支名) //合并分支
+9.git branch -d (分支名) 			//删除分支
+10.git push 					//推送
