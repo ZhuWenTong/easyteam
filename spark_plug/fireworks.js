@@ -1,7 +1,7 @@
 /**
  *
  *@time 2017-4-29
- *@author  祝文通
+ *@author  zwt
  */
 ;(function($,window,document,undefined){
 	function Spark(ele,obj){
