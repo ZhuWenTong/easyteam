@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		html,body{height: 100%;}
+		#box{width: 100%;height: 100%;background: #000;position: relative;}
+		.spark{width: 10px;height:10px;border-radius: 50%;background:#fff;position: absolute;left: 50%;top: 100%;margin-top: -10px;}
+		.fire{width: 10px;height:10px;border-radius: 50%;background:#fff;position: absolute;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script src='../jquery-1.8.3.min.js'></script>
+	<script src='fireworks.js'></script>
+	<script>
+		$(function(){
+			$('#box').air({
+				flyTime:500,//升空时间
+				fireRound:300,//爆炸半径
+				fireNum:30,//碎片数量
+				fireTime:500//碎片飞行时间
+			});
+		})
+	</script>
+</body>
+</html>
