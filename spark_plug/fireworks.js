@@ -20,14 +20,14 @@
 			var self=this;
 			this.$element.mousedown(function(e){
 				e=e||window.event;
-				var startX=e.offsetX;
-				var startY=e.offsetY;
+				var startX=e.offsetX,
+					startY=e.offsetY;
 				self.fly(startX,startY);
 			});
 		},
 		fly:function(x,y){
-			var self=this;
-			var oSpark=$('<div class="spark"></div>');
+			var self=this,
+				oSpark=$('<div class="spark"></div>');
 			oSpark.css('background',colorVal())
 			this.$element.append(oSpark);
 			oSpark.animate({'left':x,'top':y},self.flyTime,function(){
@@ -49,10 +49,10 @@
 			var oFire=$('<div class="fire"></div>');
 			oFire.css({'left':x,'top':y,'background':colorVal()});
 			ele.append(oFire);
-			var speedX=Math.random();
-			var speedY=Math.random();
-			var left=Math.random()*fireRound;
-			var top=Math.sqrt(fireRound*fireRound-left*left);
+			var speedX=Math.random(),
+				speedY=Math.random(),
+				left=Math.random()*fireRound,
+				top=Math.sqrt(fireRound*fireRound-left*left);
 			if(speedX>0.5&&speedY>0.5){
 				oFire.animate({'left':x+left,'top':y-top},fireTime,function(){
 					$(this).remove();
@@ -73,10 +73,10 @@
 		}
 	}
 	function colorVal(){
-		var r=parseInt(Math.random()*256);
-		var g=parseInt(Math.random()*256);
-		var b=parseInt(Math.random()*256);
-		var colorValue='RGB('+r+','+g+','+b+')';//console.log(colorValue)
+		var r=parseInt(Math.random()*256),
+			g=parseInt(Math.random()*256),
+			b=parseInt(Math.random()*256),
+			colorValue='RGB('+r+','+g+','+b+')';//console.log(colorValue)
 		return colorValue;
 	}
 	$.fn.air=function(obj){
