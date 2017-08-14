@@ -1,4 +1,4 @@
-var obj = {
+const obj = {
 	init(...arr){
 		console.log(arr);
 		var fn = arr[0],
