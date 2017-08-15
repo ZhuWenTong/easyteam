@@ -1,59 +1,59 @@
 var a = [{
-    id: 1,
-    name: 1
+	id: 1,
+	name: 1
 }, {
-    id: 2,
-    name: 2
+	id: 2,
+	name: 2
 }, {
-    id: 3,
-    name: 4
+	id: 3,
+	name: 4
 }];
-var result = a.find((a,b,c) => {
-    if (a.id == 3) {
-        return a;
-    }
+var result = a.find((a, b, c) => {
+	if (a.id == 3) {
+		return a;
+	}
 });
 console.info(result);
 
-result = a.filter((a,b,c) => {
-    if (a.id == 2) {
-        return a;
-    }
+result = a.filter((a, b, c) => {
+	if (a.id == 2) {
+		return a;
+	}
 });
 console.info(result[0]);
 
-a.forEach((a,b,c) => {
-    if (a.id == 3) {
-        result = a;
-        return;
-    }
+a.forEach((a, b, c) => {
+	if (a.id == 3) {
+		result = a;
+		return;
+	}
 });
 
 console.info(result);
 
-a.map((a,b,c) => {
-    if (a.id == 2) {
-        result = a;
-        return;
-    }
+a.map((a, b, c) => {
+	if (a.id == 2) {
+		result = a;
+		return;
+	}
 });
 console.log(result);
 
 a.some((a) => {
-    if (a.id == 3) {
-        result = a;
-        return;
-    }
+	if (a.id == 3) {
+		result = a;
+		return;
+	}
 });
 
 console.log(result);
 
 var b = a.entries(),
-    c;
+	c;
 while (!(c = b.next()).done) {
-    if (c.id == 3) {
-        result = c;
-        break;
-    }
+	if (c.id == 3) {
+		result = c;
+		break;
+	}
 }
 console.log(result);
