@@ -1,0 +1,59 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "arial";
+  font-size: 16px; }
+
+#header {
+  width: 100%;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.5); }
+  #header p {
+    color: #fff;
+    font-size: 24px;
+    line-height: 100px;
+    text-align: center; }
+
+#content {
+  width: 100%;
+  overflow: hidden; }
+  #content h3 {
+    color: darken;
+    font-size: 20px;
+    line-height: 50px;
+    text-indent: 100px; }
+  #content p {
+    color: #4d4d4d;
+    font-size: 16px;
+    line-height: 33.3333333333px;
+    text-indent: 120px; }
+
+.test {
+  width: 100%;
+  overflow: hidden; }
+  .test .mixin {
+    background: #ccc;
+    border-radius: 50%;
+    float: left;
+    width: 100px;
+    height: 100px; }
+    .test .mixin p {
+      color: blue;
+      line-height: 100px;
+      text-align: center; }
+  .test .mixin2 {
+    background: #ff0;
+    border-radius: 10%;
+    float: right;
+    width: 100px;
+    height: 100px; }
+    .test .mixin2 p {
+      color: black;
+      line-height: 100px;
+      text-align: center; }
+
+/*# sourceMappingURL=index.css.map */

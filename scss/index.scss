@@ -1,0 +1,75 @@
+$bg:rgba(0,0,0,0.5);
+$color:#fff;
+$fontsize:16px;
+$family:'arial';
+$width:100px;
+*,
+*:before,
+*:after{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: $family;
+	font-size: $fontsize;
+}
+
+#header{
+	width:100%;
+	height:$width;
+	background: $bg;
+	p{
+		color:$color;
+		font-size:$fontsize + 8;
+		line-height: $width;
+		text-align: center;
+	}
+}
+#content{
+	width:100%;
+	overflow:hidden;
+	h3{
+		color:darken;
+		font-size:$fontsize + 4;
+		line-height: $width / 2;
+		text-indent: $width;
+	}
+	p{
+		color:darken(#ccc,50%);
+		font-size:$fontsize;
+		line-height: $width / 3;
+		text-indent: $width + 20;
+	}
+}
+
+@mixin test($bgcolor,$radius:10px,$left:left){
+	background: $bgcolor;
+	border-radius:$radius;
+	float:$left;
+}
+
+.test{
+	width:100%;
+	overflow: hidden;
+	.mixin{
+		@include test(#ccc,50%,left);
+		width:$width;
+		height:$width;
+		p{
+			color:complement(#ff0);
+			line-height: $width;
+			text-align: center;
+		}
+	}
+	.mixin2{
+		@include test(#ff0,10%,right);
+		width:$width;
+		height: $width;
+		p{
+			color:grayscale(#000);
+			line-height: $width;
+			text-align: center;
+		}
+	}
+}
