@@ -33,3 +33,6 @@
   git rm -r test    				//(删除文件夹)
 3.git commit -m ''					//说明
 4.git push origin master			//推到该分支
+
+删除远程仓库的分支
+git push origin :test				
