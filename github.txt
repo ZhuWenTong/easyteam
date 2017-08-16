@@ -13,19 +13,19 @@
 4.git add README.md
 5.git commit -m '说明'
 6.git remote add origin https://github.com/ZhuWenTong/RESUME
-7.git push -u origin master 		 //第一次推送
+7.git push -u origin master         //第一次推送
 
 方法三:
-1.git pull 							 //得到最新代码
-2.git checkout -b (分支名)			  //创建分支
-3.git status //查看当前项目一些状态
+1.git pull          //得到最新代码
+2.git checkout -b (分支名)         //创建分支
+3.git status            //查看当前项目一些状态
 4.git add (文件名)
 5.git commit -m '说明'
-6.git checkout master 				 //回到分支
+6.git checkout master           //回到分支
 7.git pull
-8.git merge (分支名) //合并分支
-9.git branch -d (分支名) 			  //删除分支
-10.git push 						//推送
+8.git merge (分支名)           //合并分支
+9.git branch -d (分支名)           //删除分支
+10.git push         //推送
 
 删除远程仓库的文件夹/文件
 1.git clone xxx						//克隆到本地
