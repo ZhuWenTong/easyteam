@@ -57,3 +57,13 @@ while (!(c = b.next()).done) {
 	}
 }
 console.log(result);
+
+//根据对象数组的属性 改变属性值
+var obj = [{ "name": "xiaoming" }, { "name": "" }, { "name": "zhangsan" }];
+for (var key in obj) {
+    if (obj[key]["name"] == "") {
+
+        obj[key]["name"] = "0";
+    }
+}
+console.dir(obj);
