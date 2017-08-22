@@ -67,3 +67,16 @@ for (var key in obj) {
     }
 }
 console.dir(obj);
+
+//将多个对象合并成一个
+var obj1 = {
+	a: 1
+},
+	obj2 = {
+		b: 2
+	},
+	obj3 = {
+		c: 3
+	};
+var obj = Object.assign(obj1,obj2,obj3);
+console.log(obj);//{a:1,b:2,c:3}
