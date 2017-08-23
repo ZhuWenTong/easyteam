@@ -1,0 +1,52 @@
+/*分页组件样式*/
+/*分页组件的容器*/
+.mypagenation {
+    text-align: center;
+    font-size: 0;
+}
+/*分页组件外层包裹层*/
+.mypagenation .link-wrapper {
+    display: inline-block;
+}
+/*分页组件中的 小按钮*/
+.mypagenation .link-wrapper a,
+.mypagenation .link-wrapper span {
+    display: inline-block;
+    box-sizing: content-box;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    color: #666;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: normal;
+    *font-family: Arial;
+    letter-spacing: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+.mypagenation .link-wrapper span {
+    width: auto;
+}
+.mypagenation .link-wrapper span.text {
+    width: auto;
+    padding: 0 15px;
+}
+.mypagenation .link-wrapper span.next-page {
+    margin-right: 0;
+}
+/*分页组件小按钮 hover效果*/
+.mypagenation .link-wrapper a:hover,
+.mypagenation .link-wrapper span:hover{
+    color: #fff;
+    border: 1px solid #3b7ed4;
+    background:#3b7ed4;
+}
+/*分页组件*/
+.mypagenation .link-wrapper a.active {
+    color: #fff;
+    background: #3b7ed4;
+    border-color: #3b7ed4;
+}
