@@ -18,7 +18,7 @@ body{
 #header{
 	width:100%;
 	height:$width;
-	background: $bg;
+	background: linear-gradient(to right,#b6f9fe,#3568d6);
 	p{
 		color:$color;
 		font-size:$fontsize + 8;
