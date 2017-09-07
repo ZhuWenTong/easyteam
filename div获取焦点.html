@@ -19,11 +19,12 @@
 	<div id="box" tabindex="1"></div>
 	<script>
 		var box = document.getElementById('box');
+		//focus blur 是针对form表单控件的 而对于div li ··· 无法触发动作 只需设置一个tabindex属性则可以触发 
 		box.onfocus = function(){
-			console.log(1)
+			console.log('focus');
 		}
 		box.onblur = function(){
-			console.log(2)
+			console.log('blur');
 		}
 	</script>
 </body>
