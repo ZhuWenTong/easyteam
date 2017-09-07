@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*,*:before,*:after{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: linear-gradient(to right,#f000ff,#0ffff0);
+		}
+	</style>
+</head>
+<body>
+	<div id="box" tabindex="1"></div>
+	<script>
+		var box = document.getElementById('box');
+		box.onfocus = function(){
+			console.log(1)
+		}
+		box.onblur = function(){
+			console.log(2)
+		}
+	</script>
+</body>
+</html>
