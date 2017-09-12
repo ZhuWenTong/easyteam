@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="css/paging.css">
-	</head>
-	<body>
-		<div id="box"></div>
-		<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
-		<script type="text/javascript" src="js/query.js"></script>
-		<script type="text/javascript" src="js/paging.js"></script>
-		<script>
-			$("#box").Paging({pagesize:10,count:2000,toolbar:true});
-			var Box={
-				dom:{},
-				init:function(){
-					this.initDom();
-					this.bindEvent();
-				},
-				initDom:function(){
-					var dom=this.dom;
-					dom.focusLi=$("#box ul li.focus");console.log(dom.focusLi.attr("data-page"));
-					dom.btnLi=$("#box ul li");
-					dom.btnLi.on('click',$("body"),function(){
-					console.log($(this).attr("data-page"));
-				})
-				},
-				bindEvent:function(){
-					var dom=this.dom;
-					
-				}
-			}
-			$(function(){
-				
-				Box.init();
-			})
-		</script>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/paging.css">
+</head>
+
+<body>
+    <div id="box"></div>
+    <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="js/query.js"></script>
+    <script type="text/javascript" src="js/paging.js"></script>
+    <script>
+    $(function() {
+        $("#box").Paging({
+            pagesize: 10,
+            count: 2000,
+            toolbar: true,
+            callback(index){
+            	console.log(index)
+            }
+        });
+    })
+    </script>
+</body>
+
 </html>

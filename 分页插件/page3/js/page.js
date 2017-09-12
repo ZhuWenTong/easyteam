@@ -1,6 +1,6 @@
 (function($) {
     $.fn.extend({
-        initPagenation: function (config) {
+        initPagenation: function(config) {
             var $pageBox = this;
             if (!$pageBox.length) {
                 console.log('======= 选择器错误, 没有找到该元素! =======');
@@ -23,9 +23,11 @@
                 showBtnsCount: config.showBtnsCount || 10,
                 _useLink: true,
                 data: null,
-                callback: config.callback, /*接口暴露*/
-                showBtnFirst: config.showBtnFirst, /*是否显示首页,尾页*/
-                init: function (pagesInfo) {
+                callback: config.callback,
+                /*接口暴露*/
+                showBtnFirst: config.showBtnFirst,
+                /*是否显示首页,尾页*/
+                init: function(pagesInfo) {
                     var count = pagesInfo.totalCount;
                     if (!pagesInfo || !count) {
                         $pageBox.hide();
@@ -43,7 +45,7 @@
                     this.pagesCount = Math.ceil(count / this.SHOW_COUNT);
                     this.initBtns();
                 },
-                initBtns: function () {
+                initBtns: function() {
                     var count = this.totalCount,
                         pages = Math.ceil(count / this.SHOW_COUNT),
                         btnsCount = pages <= this.showBtnsCount ? pages : this.showBtnsCount,
@@ -65,30 +67,30 @@
                     var callback = this.callback,
                         that = this,
                         $pagenation = $pageBox;
-                    $pagenation.on('click', 'a', function () {
+                    $pagenation.on('click', 'a', function() {
                         $(this).addClass('active').siblings('a').removeClass('active');
                         var index = window.parseInt(this.innerHTML);
                         that.pageIndex = index;
                         callback && callback(index);
                         that.handleIndex(index);
                     });
-                    $pagenation.on('click', '.pre-page', function () {
+                    $pagenation.on('click', '.pre-page', function() {
                         var index = that.pageIndex;
                         index--;
-                        index = index < 1? 1 : index;
+                        index = index < 1 ? 1 : index;
                         that.switchIndex(index);
                     });
-                    $pagenation.on('click', '.next-page', function () {
+                    $pagenation.on('click', '.next-page', function() {
                         var index = that.pageIndex;
                         index++;
-                        index = index > that.pagesCount? that.pagesCount : index;
+                        index = index > that.pagesCount ? that.pagesCount : index;
                         that.switchIndex(index);
                     });
                     if (this.showBtnFirst) {
-                        $pagenation.on('click', '.first-page', function () {
+                        $pagenation.on('click', '.first-page', function() {
                             that.switchIndex(1);
                         });
-                        $pagenation.on('click', '.last-page', function () {
+                        $pagenation.on('click', '.last-page', function() {
                             that.switchIndex(that.pagesCount);
                         });
                     } else {
@@ -96,29 +98,29 @@
                     }
                     this.switchIndex(1);
                 },
-                switchIndex: function (index) {
+                switchIndex: function(index) {
                     this.pageIndex = index;
                     this.callback && this.callback(index);
                     this.handleIndex(index);
                 },
-                handleIndex: function (index) {
+                handleIndex: function(index) {
                     var pagesCount = this.pagesCount,
                         startIndex = 0,
                         endIndex = 0,
                         rightCount = parseInt(this.showBtnsCount / 2),
                         showBtnsCount = this.showBtnsCount,
                         $pageItems = $pageBox.find('a');
-                    if (pagesCount > showBtnsCount) {//核心思想在此
+                    if (pagesCount > showBtnsCount) { //核心思想在此
                         if (index + rightCount <= pagesCount) {
                             endIndex = index + rightCount;
                         } else {
                             endIndex = pagesCount;
                         }
-                        endIndex = endIndex < showBtnsCount ? showBtnsCount : endIndex;//左侧开始的负数
+                        endIndex = endIndex < showBtnsCount ? showBtnsCount : endIndex; //左侧开始的负数
                         startIndex = endIndex - showBtnsCount + 1;
-                        $pageItems.each(function (index2) {
+                        $pageItems.each(function(index2) {
                             $(this).html(startIndex + index2);
-                            if (startIndex + index2 ===  index) {
+                            if (startIndex + index2 === index) {
                                 $(this).addClass('active').siblings('a').removeClass('active');
                             }
                         });
@@ -128,7 +130,7 @@
             myPageConfig.init({
                 totalCount: config.totalCount,
                 callback: config.callback,
-                showCount: config.showCount,  //可选配置,一次显示多少页,默认是显示 1 ~ 10页
+                showCount: config.showCount, //可选配置,一次显示多少页,默认是显示 1 ~ 10页
                 showBtnsCount: config.showBtnsCount
             });
             return $pageBox;
