@@ -1,35 +1,192 @@
 @charset "utf-8";
+
 /* Css Reset For XHTML*/
-html{color:#000;background:#FFF;}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
-table{border-collapse:collapse;border-spacing:0}
-fieldset,img{border:0}
-address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
-ol,ul{list-style:none}
-caption,th{text-align:left}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
-q:before,q:after{content:''}
-abbr,acronym{border:0;font-variant:normal}
-sup{vertical-align:text-top}
-sub{vertical-align:text-bottom}
-input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}
-input,textarea,select{*font-size:100%}
-legend{color:#000}
+
+html {
+    color: #000;
+    background: #FFF;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+fieldset,
+img {
+    border: 0
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+caption,
+th {
+    text-align: left
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+q:before,
+q:after {
+    content: ''
+}
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal
+}
+
+sup {
+    vertical-align: text-top
+}
+
+sub {
+    vertical-align: text-bottom
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit
+}
+
+input,
+textarea,
+select {
+    *font-size: 100%
+}
+
+legend {
+    color: #000
+}
+
+
 /*去除链接取得焦点时的虚线框*/
-a{text-decoration:none;outline:none;}
-a:hover{text-decoration:underline;}
-a:active{star:expression(this.onFocus=this.blur())/*IE6/7,此代码会中断tab,而且过多使用css表达式会严重影响页面性能*/;}
-a:focus{outline:none;}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    star: expression(this.onFocus=this.blur())/*IE6/7,此代码会中断tab,而且过多使用css表达式会严重影响页面性能*/
+    ;
+}
+
+a:focus {
+    outline: none;
+}
+
+
 /*解决firefox下button文字设置行高没有垂直居中的问题*/
+
+
 /*频繁使用的css*/
-.cl{clear:both;}
-.fix{zoom:1;}
-.fix:after{content:".";display:block;height:0;font-size:0;overflow:hidden;clear:both;}
-.fl{float:left;}
-.fr{float:right;}
-.rel{position:relative;}
-.abs{position:absolute;}
-.block{display:block;}
-.none{display:none;}
+
+.cl {
+    clear: both;
+}
+
+.fix {
+    zoom: 1;
+}
+
+.fix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.rel {
+    position: relative;
+}
+
+.abs {
+    position: absolute;
+}
+
+.block {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+
 /*字体(unicode)：宋体(\5B8B\4F53)黑体(\9ED1\4F53)微软雅黑(\5FAE\8F6F\96C5\9ED1)*/
-body{font:12px/150% \5FAE\8F6F\96C5\9ED1,sans-serif;}
+
+body {
+    font: 12px/150% \5FAE\8F6F\96C5\9ED1, sans-serif;
+}
