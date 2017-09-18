@@ -8,21 +8,24 @@ var a = [{
 	id: 3,
 	name: 4
 }];
-var result = a.find((a, b, c) => {
+var result = a.find((a) => {
+	console.log(a)
 	if (a.id == 3) {
 		return a;
 	}
 });
 console.info(result);
 
-result = a.filter((a, b, c) => {
+result = a.filter((a) => {
+	console.log(a)
 	if (a.id == 2) {
 		return a;
 	}
 });
 console.info(result[0]);
 
-a.forEach((a, b, c) => {
+a.forEach((a) => {
+	console.log(a)
 	if (a.id == 3) {
 		result = a;
 		return;
@@ -31,7 +34,8 @@ a.forEach((a, b, c) => {
 
 console.info(result);
 
-a.map((a, b, c) => {
+a.map((a) => {
+	console.log(a)
 	if (a.id == 2) {
 		result = a;
 		return;
