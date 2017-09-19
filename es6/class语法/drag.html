@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>move</title>
+    <title>Drag</title>
     <style>
     *,
     *:before,
@@ -91,7 +91,6 @@
 	        }
 	        colorChange() {
 	            let colorArr = ['red', 'green', 'yellow', '#ccc'],
-	                self = this,
 	                i = 0;
 	            setInterval(() => {
 	                this.ele.style.background = colorArr[i % 4];
