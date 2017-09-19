@@ -29,12 +29,19 @@
         left: 500px;
         top: 0;
     }
+
+    #box2{
+    	background: #ccc;
+    	left: 0;
+    	top: 500px;
+    }
     </style>
 </head>
 
 <body>
     <div id="box"></div>
     <div id="box1"></div>
+    <div id="box2"></div>
     <script>
 	    class Drag {
 	        constructor(id) {
@@ -82,20 +89,21 @@
 	            super();
 	            this.ele = document.getElementById(id);
 	        }
-	        sport() {
+	        colorChange() {
 	            let colorArr = ['red', 'green', 'yellow', '#ccc'],
 	                self = this,
 	                i = 0;
 	            setInterval(() => {
 	                self.ele.style.background = colorArr[i % 4];
 	                i++;
-	            }, 500)
+	            }, 1000)
 	        }
 	    }
 
 	    new Drag('box').init();
 	    new SubDrag('box1').init();
-	    new SubDrag('box1').sport();
+	    new SubDrag('box1').colorChange();
+	    new SubDrag('box2').colorChange();
     </script>
 </body>
 
