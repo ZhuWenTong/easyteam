@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>move</title>
+    <style>
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+
+    #box {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+
+    #box1 {
+        background: blue;
+        left: 500px;
+        top: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="box1"></div>
+    <script>
+	    class Drag {
+	        constructor(id) {
+	            this.ele = document.getElementById(id);
+	        }
+	        init() {
+	            //console.log(this.ele)
+	            let self = this;
+	            this.ele.onmousedown = function(e) {
+	                //console.log(e)
+	                e = e || window.event;
+	                if (e.stopPropagation) {
+	                    e.stopPropagation();
+	                } else {
+	                    e.cancelBubble = true;
+	                }
+	                let startX = e.offsetX,
+	                    startY = e.offsetY;
+	                self.move(startX, startY);
+	            }
+	        }
+	        move(startX, startY) {
+	            let self = this;
+	            document.onmousemove = function(e) {
+	                e = e || window.event;
+	                let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft,
+	                    scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
+	                    left = e.clientX - startX + scrollLeft + 'px',
+	                    top = e.clientY - startY + scrollTop + 'px';
+	                self.ele.style.left = left;
+	                self.ele.style.top = top;
+	                document.onmouseup = function() {
+	                    self.end();
+	                }
+	            }
+	        }
+	        end() {
+	            document.onmousemove = null;
+	            document.onmouseup = null;
+	        }
+	    }
+
+	    class SubDrag extends Drag { //继承了Drag类
+	        constructor(id) {
+	            super();
+	            this.ele = document.getElementById(id);
+	        }
+	        sport() {
+	            let colorArr = ['red', 'green', 'yellow', '#ccc'],
+	                self = this,
+	                i = 0;
+	            setInterval(() => {
+	                self.ele.style.background = colorArr[i % 4];
+	                i++;
+	            }, 500)
+	        }
+	    }
+
+	    new Drag('box').init();
+	    new SubDrag('box1').init();
+	    new SubDrag('box1').sport();
+    </script>
+</body>
+
+</html>
