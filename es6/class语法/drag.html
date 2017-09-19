@@ -49,8 +49,7 @@
 	        }
 	        init() {
 	            //console.log(this.ele)
-	            let self = this;
-	            this.ele.onmousedown = function(e) {
+	            this.ele.onmousedown = (e) => {
 	                //console.log(e)
 	                e = e || window.event;
 	                if (e.stopPropagation) {
@@ -60,21 +59,20 @@
 	                }
 	                let startX = e.offsetX,
 	                    startY = e.offsetY;
-	                self.move(startX, startY);
+	                this.move(startX, startY);
 	            }
 	        }
 	        move(startX, startY) {
-	            let self = this;
-	            document.onmousemove = function(e) {
+	            document.onmousemove = (e) => {
 	                e = e || window.event;
 	                let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft,
 	                    scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
 	                    left = e.clientX - startX + scrollLeft + 'px',
 	                    top = e.clientY - startY + scrollTop + 'px';
-	                self.ele.style.left = left;
-	                self.ele.style.top = top;
-	                document.onmouseup = function() {
-	                    self.end();
+	                this.ele.style.left = left;
+	                this.ele.style.top = top;
+	                document.onmouseup = () => {
+	                    this.end();
 	                }
 	            }
 	        }
