@@ -71,20 +71,75 @@
         height: 300px;
         background: linear-gradient(to right, #EFF2F7, #C0CCDA);
     }
-
-    .css3-2d {
+    
+    #wrap-transition .transition div{
         width: 100px;
         height: 100px;
-        background: #58B7FF;
         transition: all 1s;
+        margin-right: 100px;
+        text-align: center;
+        line-height: 100px;
+        color: #fff;
+        font-size: 20px;
+        font-family: '微软雅黑';
+    }
+
+    #wrap-transition .transition div:last-child{
+        margin-right: 0;
+    }
+
+    .css3-2d {
+        background: linear-gradient(to right, #4e8cfd, #25c4fb);
+    }
+
+    .css3-2d-1 {
+        background: #F7BA2A;
     }
 
     .css3-2d:hover {
-        /*  width: 200px;
-        height: 200px; */
-        background: #1D8CE0;
+        background: linear-gradient(to right, #25c4fb, #4e8cfd);
         transform: translate(100px,100px) rotate(360deg) ;
     }
+    
+    #wrap-transition .css3-2d-1:hover{
+        width:150px;
+        height:150px;
+        background: #FF4949;
+        transform: rotate(360deg);
+    }
+    
+    .css3-3d{
+        background: #13CE66;
+    }
+
+    .css3-3d:hover{
+        transform: rotateX(180deg);
+    }
+    
+    .css3-3d-2{
+        background: #324057;
+    }
+
+    .css3-3d-2:hover{
+        transform: rotateY(180deg);
+    }
+
+    .css3-3d-3{
+        background: #FF4949;
+    }
+
+    .css3-3d-3:hover{
+        transform: scale(0.8)
+    }
+
+    .css3-3d-4{
+        background: #1D8CE0;
+    }
+
+    .css3-3d-4:hover{
+        transform: scale(1.2);
+    }
+
     </style>
 </head>
 
@@ -100,7 +155,12 @@
     </div>
     <div id="wrap-transition">
         <div class="transition">
-            <div class="css3-2d"></div>
+            <div class="css3-2d">旋转</div>
+            <div class="css3-2d-1">旋转</div>
+            <div class="css3-3d">旋转</div>
+            <div class="css3-3d-2">旋转</div>
+            <div class="css3-3d-3">缩放</div>
+            <div class="css3-3d-4">缩放</div>
         </div>
     </div>
 </body>
