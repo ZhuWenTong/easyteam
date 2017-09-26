@@ -2,7 +2,7 @@
 //charCodeAt方法返回字符的字符编码
 var str = 'hello world';
 console.log(str.charAt(4));//'o'
-console.log(str.charCodeAt(4))//111
+console.log(str.charCodeAt(4));//111
 
 //concat 字符串拼接 或 + 或 `${}${}`
 
@@ -11,15 +11,15 @@ console.log(str.charCodeAt(4))//111
 //slice和substring的第二个参数指定的是字符串最后一个字符串后面的位置，而substr的第二个参数指定的则是返回的字符个数。如果没有给这些方法传递第二个参数，则将字符串的长度作为结束位置。
 //这三个方法都不会改变原字符串
 
-console.log(str.slice(6))//'world'
-console.log(str.slice(6, 8))//'wo'
-console.log(str.slice(0, -1))//'hello worl' 删除最后一个字符
+console.log(str.slice(6));//'world'
+console.log(str.slice(6, 8));//'wo'
+console.log(str.slice(0, -1));//'hello worl' 删除最后一个字符
 
-console.log(str.substring(6))//'world'
-console.log(str.substring(6, 8))//'wo'
+console.log(str.substring(6));//'world'
+console.log(str.substring(6, 8));//'wo'
 
-console.log(str.substr(6))//'world'
-console.log(str.substr(6, 3))//'wor'
+console.log(str.substr(6));//'world'
+console.log(str.substr(6, 3));//'wor'
 
 //indexOf方法从字符串的开头向后搜索字符串
 //lastIndexOf方法时从字符串的末尾向前搜索字符串，找不到一样返回-1
