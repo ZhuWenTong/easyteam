@@ -7,7 +7,9 @@ console.log(obj);
 var value = 'sex';
 //将表达式放在方括号内 
 var obj1 = {
-	[value]: 'man'
+	[value]: {
+		name: 11
+	}
 }
 console.log(obj1)
 
