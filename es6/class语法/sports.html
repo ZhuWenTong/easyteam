@@ -23,22 +23,31 @@
 			constructor(id){
 				this.ele = $(`#${id}`);
 			}
-			init(){
-				//console.log(this.ele)
-				this.ele.click(() => {
+			sport(x, y, time){
+				this.ele.animate({
+					left: x,
+					top: 0
+				}, time, () => {
 					this.ele.animate({
-						left: 300,
-						top: 300
-					}, 1000, () => {
+						left: x,
+						top: y
+					}, time, () => {
 						this.ele.animate({
 							left: 0,
-							top: 0
-						}, 1000)
-					});
+							top: y
+						}, time, () => {
+							this.ele.animate({
+								left: 0,
+								top: 0
+							}, time, () => {
+								this.sport();
+							})
+						})
+					})
 				})
 			}
 		}
-		new Sport('box').init();
+		new Sport('box').sport(400, 400, 800);
 	</script>
 </body>
 </html>
