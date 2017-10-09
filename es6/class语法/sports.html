@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*,
+		*:before,
+		*:after{
+			margin: 0;padding: 0;
+		}
+
+		#box{
+			width: 100px;height: 100px;background: red;position: absolute;left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		class Sport {
+			constructor(id){
+				this.ele = $(`#${id}`);
+			}
+			init(){
+				//console.log(this.ele)
+				this.ele.click(() => {
+					this.ele.animate({
+						left: 300,
+						top: 300
+					}, 1000, () => {
+						this.ele.animate({
+							left: 500,
+							top: 0
+						}, 1000)
+					});
+				})
+			}
+		}
+		new Sport('box').init();
+	</script>
+</body>
+</html>
