@@ -13,8 +13,8 @@
                 fireRound: 300,
                 fireNum: 30,
                 fireTime: 500
-            },
-            this.options = $.extend({}, this.defaults, obj);
+           };
+        this.options = $.extend({}, this.defaults, obj);
     }
     Spark.prototype = {
         init: function() {
