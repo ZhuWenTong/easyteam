@@ -1,3 +1,9 @@
+/**
+ * @description ajax请求
+ * @param  {Object} opt
+ * @function
+ * @example ajax({method: 'POST', url: '', data: {data, ...}, success(res) {}})
+ */
 function ajax(opt) {
 	opt = opt || {};
 	opt.method = opt.method.toUpperCase() || 'POST';
@@ -30,15 +36,3 @@ function ajax(opt) {
 		}
 	};
 }
-//使用示例
-//ajax({
-//    method: 'POST',
-//    url: '',
-//    data: {
-//        data,
-//        ... 
-//    },
-//    success(res) {
-//       console.log(res);
-//    }
-//});
