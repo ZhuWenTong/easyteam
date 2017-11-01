@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,ul li{
+				list-style: none;
+			}
+			.box{
+				width: 800px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			ul{
+				width: 100%;
+				background: #ccc;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+			}
+			li{
+				line-height: 50px;
+				text-align: center;
+				flex: 1;
+			}
+			.z-act{
+				color:#fff;
+				background: #007AFF;				
+			}
+			#title{
+				font-size: 20px;
+				line-height: 50px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p id="title">tab切换1</p>
+			<ul id="tab">
+				<li class="z-act">tab切换1</li>
+				<li>tab切换2</li>
+				<li>tab切换3</li>
+				<li>tab切换4</li>
+				<li>tab切换5</li>
+			</ul>
+		</div>
+		<script>
+			/**
+			 * @description firstLi标记为前一个选择的元素 点击的时候firstLi样式清空 同时 当前元素赋给firstLi 给定样式 ; 要比循环将所有元素样式清空 在给当前元素样式效率高
+			 */
+			var oTab = document.getElementById("tab"),
+				firstLi = document.getElementsByTagName('li')[0],
+				allLi = oTab.getElementsByTagName('li'),
+				title = document.getElementById("title");
+			//console.log(oTab,allLi[0])
+			for(var i = 0; i < allLi.length; i++) {
+				allLi[i].onclick = function() {
+					//console.log(this)
+					/**
+					 * @this 指向当前点击的li
+					 */
+					firstLi.className = '';
+					firstLi = this;
+					firstLi.className = 'z-act';
+					title.innerHTML = this.innerHTML;
+				}
+			}
+		</script>
+	</body>
+</html>
