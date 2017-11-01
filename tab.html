@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<style>
 			*{
@@ -12,7 +13,7 @@
 				list-style: none;
 			}
 			.box{
-				width: 800px;
+				width: 1200px;
 				position: absolute;
 				left: 50%;
 				top: 50%;
@@ -33,12 +34,15 @@
 			}
 			.z-act{
 				color:#fff;
-				background: #007AFF;				
+				background: linear-gradient(to right, #20a0ff, #1F2D3D);				
 			}
-			#title{
+			#title, #sub_title{
 				font-size: 20px;
 				line-height: 50px;
 				text-align: center;
+			}
+			#sub_tab{
+				margin-top: 20px;
 			}
 		</style>
 	</head>
@@ -51,11 +55,29 @@
 				<li>tab切换3</li>
 				<li>tab切换4</li>
 				<li>tab切换5</li>
+				<li>tab切换6</li>
+				<li>tab切换7</li>
+				<li>tab切换8</li>
+				<li>tab切换9</li>
+				<li>tab切换10</li>
 			</ul>
+			<ul id="sub_tab">
+				<li class="z-act">sub_tab1</li>
+				<li>sub_tab2</li>
+				<li>sub_tab3</li>
+				<li>sub_tab4</li>
+				<li>sub_tab5</li>
+				<li>sub_tab6</li>
+				<li>sub_tab7</li>
+				<li>sub_tab8</li>
+				<li>sub_tab9</li>
+				<li>sub_tab10</li>
+			</ul>
+			<p id="sub_title">sub_tab1</p>
 		</div>
 		<script>
 			/**
-			 * @description firstLi标记为前一个选择的元素 点击的时候firstLi样式清空 同时 当前元素赋给firstLi 给定样式 ; 要比循环将所有元素样式清空 在给当前元素样式效率高
+			 * @description firstLi标记为前一个选择的元素 点击的时候firstLi样式清空 同时 当前元素赋给firstLi 给定样式 ; 要比循环将所有元素样式清空 再给当前元素样式效率高 代码更为精简
 			 */
 			var oTab = document.getElementById("tab"),
 				firstLi = document.getElementsByTagName('li')[0],
@@ -65,6 +87,7 @@
 			for(var i = 0; i < allLi.length; i++) {
 				allLi[i].onclick = function() {
 					//console.log(this)
+					console.time('tab')
 					/**
 					 * @this 指向当前点击的li
 					 */
@@ -72,6 +95,22 @@
 					firstLi = this;
 					firstLi.className = 'z-act';
 					title.innerHTML = this.innerHTML;
+					console.timeEnd('tab')
+				}
+			}
+			
+			var subTab = document.getElementById("sub_tab"),
+				sub_all_li = subTab.getElementsByTagName("li"),
+				sub_title = document.getElementById("sub_title");
+			for(var i = 0; i < sub_all_li.length; i++) {
+				sub_all_li[i].onclick = function() {
+					console.time('sub_tab')
+					for(var j = 0; j < sub_all_li.length; j++) {
+						sub_all_li[j].className = '';
+					}
+					this.className = 'z-act';
+					sub_title.innerHTML = this.innerHTML;
+					console.timeEnd('sub_tab')
 				}
 			}
 		</script>
