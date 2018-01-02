@@ -8,7 +8,7 @@
 	<script>
 		//串行
 		function add(val) {
-			console.log('val: ' + val);
+			console.log('val1: ' + val);
 			return new Promise(function(resolve, reject) {
 				val += val; // 40
 				console.log('add: ' + val)
@@ -30,7 +30,7 @@
 		}
 
 		function min(val) {
-			console.log('val: ' + val);
+			console.log('val3: ' + val);
 			return new Promise(function(resolve, reject) {
 				val -= 10;
 				console.log('min: ' + val);
@@ -39,7 +39,7 @@
 		}
 
 		function divsion(val) {
-			console.log('val: ' + val);
+			console.log('val4: ' + val);
 			return new Promise(function(resolve, reject) {
 				val /= 10;
 				console.log('divsion: ' + val);
