@@ -26,6 +26,7 @@
 				setTimeout(() => {
 				  resolve(val);
 				}, 500)
+				x + 2;
 			})
 		}
 
@@ -51,8 +52,8 @@
 			resolve(20);
 		})
 
-		p.then(add).then(min).then(multiply).then(divsion).catch(function() {
-			console.log('err')
+		p.then(add).then(min).then(multiply).then(divsion).catch(function(err) {
+			console.log(err);
 		});
 		//并行
 		var p1  = new Promise(function(resolve, reject) {
