@@ -1,76 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>Promise</title>
 </head>
+
 <body>
-	<script>
-		//串行
-		function add(val) {
-			console.log('val1: ' + val);
-			return new Promise(function(resolve, reject) {
-				val += val; // 40
-				console.log('add: ' + val)
-				setTimeout(resolve, 500, val);
-				//resolve(val);
-			})
-		}
-
-		function multiply(val) {
-			console.log('val2: ' + val);
-			return new Promise(function(resolve, reject) {
-				val *= val;
-				console.log('multiply: ' + val);
-				//setTimeout(resolve, 500, val);
-				setTimeout(() => {
-				  resolve(val);
-				}, 500)
-				x + 2;
-			})
-		}
-
-		function min(val) {
-			console.log('val3: ' + val);
-			return new Promise(function(resolve, reject) {
-				val -= 10;
-				console.log('min: ' + val);
-				setTimeout(resolve, 500, val);
-			})
-		}
-
-		function divsion(val) {
-			console.log('val4: ' + val);
-			return new Promise(function(resolve, reject) {
-				val /= 10;
-				console.log('divsion: ' + val);
-				setTimeout(resolve, 500, val);
-			})
-		}
-
-		var p = new Promise(function(resolve, reject) {
-			resolve(20);
-		})
-
-		p.then(add).then(min).then(multiply).then(divsion).catch(function(err) {
-			console.log(err);
-		});
-		//并行
-		var p1  = new Promise(function(resolve, reject) {
-			setTimeout(resolve, 2500, 'p1');
-		})
-
-		var p2 = new Promise(function(resolve, reject) {
-			setTimeout(resolve, 2600, 'p2');
-		})
-		//获取两个结果
-		Promise.all([p1, p2]).then(function(result) {
-			console.log(result);
-		})
-		//获取先返回的
-		Promise.race([p1, p2]).then(function(result) {
-			console.log(result);
-		})
-	</script>
+    <script>
+    //串行
+    var obj = {
+        myPromise(val) {
+            var p = new Promise((resolve, reject) => {
+                resolve(val);
+            });
+            p.then(this.add).then(this.min).then(this.multiply).then(this.divsion).catch(err => console.log(err));
+        },
+        add(val) {
+            val += val;
+            console.log(val);
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(val);
+                }, 2000);
+            });
+        },
+        min(val) {
+            val -= 10;
+            console.log(val);
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(val);
+                }, 2000);
+            })
+        },
+        multiply(val) {
+        	val *= 10;
+        	console.log(val);
+        	return new Promise((resolve, reject) => {
+        		setTimeout(() => {
+        			resolve(val);
+        		}, 2000);
+        	});
+        },
+        divsion(val) {
+        	val /= 5;
+        	console.log(val);
+        	return new Promise((resolve, reject) => {
+        		setTimeout(() => {
+        			resolve(val);
+        		}, 2000);
+        	});
+        }
+    }
+    obj.myPromise(20);
+    //并行
+    var p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('p1');
+            }, 2500);
+        }),
+        p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('p2');
+            }, 3000);
+        });
+    //获取两个结果
+    Promise.all([p1, p2]).then(result => console.log(result));
+    //获取先返回的
+    Promise.race([p1, p2]).then(result => console.log(result));
+    </script>
 </body>
+
 </html>
