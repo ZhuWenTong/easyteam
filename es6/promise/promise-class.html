@@ -17,9 +17,8 @@
             this.init();
         }
         init() {
-            var self = this,
-                p = new Promise((resolve, reject) => {
-                    resolve(self.val);
+            var p = new Promise((resolve, reject) => {
+                    resolve(this.val);
                 });
             p.then(this.add).then(this.min).then(this.multiple).then(this.divsion).catch(err => console.log(err))
         }
