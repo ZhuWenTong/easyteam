@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    onload = function() {
+        new Page();
+    }
+    class Page {
+        constructor() {
+            this.val = 10;
+            this.init();
+        }
+        init() {
+            var self = this,
+                p = new Promise((resolve, reject) => {
+                    resolve(self.val);
+                });
+            p.then(this.add).then(this.min).then(this.multiple).then(this.divsion).catch(err => console.log(err))
+        }
+        add(val) {
+            return new Promise((resolve, reject) => {
+            	val += 10;
+            	console.log(val);
+                setTimeout(() => {
+                    resolve(val);
+                }, 2000)
+            })
+        }
+        min(val) {
+            return new Promise((resolve, reject) => {
+                val -= 5;
+                console.log(val);
+                setTimeout(() => {
+                  resolve(val)
+                }, 1000);
+            })
+        }
+        multiple(val) {
+            return new Promise((resolve, reject) => {
+                val *= 10;
+                console.log(val);
+                setTimeout(() => {
+                  resolve(val);
+                }, 1000)
+            })
+        }
+        divsion(val) {
+            return new Promise((resolve, reject) => {
+                val /= 5;
+                console.log(val);
+            })
+        }
+    }
+    </script>
+</body>
+
+</html>
