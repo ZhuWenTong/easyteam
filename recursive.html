@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>recursive</title>
+</head>
+
+<body>
+    <script>
+    onload = function() {
+        new Recursive()
+    }
+    class Recursive {
+        constructor() {
+            this.init();
+        }
+        init() {
+            let obj = {
+                children: {
+                    children: {
+                        children: {
+                            children: {
+                                tit: '1',
+                                con: 'e'
+                            },
+                            tit: '2',
+                            con: 'd'
+                        },
+                        tit: '3',
+                        con: 'c'
+                    },
+                    tit: '4',
+                    con: 'b'
+                },
+                tit: '5',
+                con: 'a'
+            }
+            this.getChildren(obj);
+        }
+        getChildren(obj) {
+        	console.log(obj.tit + '---' + obj.con);
+        	if(obj.children) {
+        		this.getChildren(obj.children);
+        	}
+        }
+    }
+    </script>
+</body>
+
+</html>
