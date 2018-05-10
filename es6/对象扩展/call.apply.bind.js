@@ -38,3 +38,29 @@ demo.do.bind(woman, 'bind', 'bind')(); //对象woman, cuihua, 18, bind, bind
 //call() 的参数直接用逗号隔开
 //apply() 的参数用的数组
 //bind() 的参数形式和call()一致 需要调用
+
+//父类
+function Common(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Common.prototype.speak = function() {
+    console.log(this.name, this.age);
+}
+//子类
+function Person(name, age, className) {
+    //Common.call(this, name, age);
+    //Common.apply(this, [name, age]);
+    Common.bind(this, name, age)();
+    this.className = className;
+}
+//继承 
+Person.prototype = Object.create(Common.prototype);
+Person.prototype.constructor = Person;
+
+Person.prototype.speak = function() {
+    console.log(this.name, this.age, this.className);
+}
+
+var lisi = new Person('lisi', '20', 'A').speak();
