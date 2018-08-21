@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>div如何获取和失去焦点</title>
-	<style>
-		*,*:before,*:after{
-			margin: 0;
-			padding: 0;
-		}
-		#box{
-			width: 200px;
-			height: 200px;
-			background: linear-gradient(to right,#f000ff,#0ffff0);
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>div如何获取和失去焦点</title>
+    <style>
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        padding: 0;
+    }
+
+    #box {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(to right, #f000ff, #0ffff0);
+    }
+    </style>
 </head>
+
 <body>
-	<div id="box" tabindex="1"></div>
-	<script>
-		var box = document.getElementById('box');
-		//focus blur 是针对form表单控件的 而对于div li ··· 无法触发动作 只需设置一个tabindex属性则可以触发 
-		box.onfocus = function(){
-			console.log('focus');
-		}
-		box.onblur = function(){
-			console.log('blur');
-		}
-	</script>
+    <div id="box" tabindex="1"></div>
+    <script>
+    var box = document.getElementById('box');
+    //focus blur 是针对form表单控件的 而对于div li ··· 无法触发动作 只需设置一个tabindex属性则可以触发 
+    box.onfocus = function() {
+        console.log('focus');
+    }
+    box.onblur = function() {
+        console.log('blur');
+    }
+    </script>
 </body>
+
 </html>
