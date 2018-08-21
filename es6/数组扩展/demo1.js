@@ -57,3 +57,18 @@ for(var [key, value] of crr.entries()){
 [1, 2, 3].includes(2) //true
 [1, 2, 3].includes(4) //false
 [1, 2, NaN].includes(NaN) //true
+
+
+//不使用loop生成密集数组
+let longArr = [...Array(100).keys()],
+	longArr1 = Array.from(Array(100).keys()),
+	longArr2 = Object.keys(Array.apply(null,{length:100})),
+	longArr3 = Object.keys(Array.from({length: 100}));
+
+// 判断变量是否为数组
+Array.isArray([1]) // true
+Object.prototype.toString.call([1]) === '[object Array]'; //true
+
+var a = [1,2,3];
+a.join = a.shift;
+console.log(a == 1 && a == 2 && a == 3); //true

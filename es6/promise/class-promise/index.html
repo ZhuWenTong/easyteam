@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			overflow: auto;
+		}
+		.box::-webkit-scrollbar:hover {
+			background: #E6A23C;
+			width: 20px;
+			height: 20px;
+		}
+		.box::-webkit-scrollbar {
+			transition: all 1s;
+			border-radius: 4px;
+			width: 10px;
+			height: 10px;
+	        background: #f56c6c;
+	    }
+		
+
+		.box::-webkit-scrollbar-thumb {
+			background: #409eff;
+			border-radius: 4px
+		}
+		
+		
+		p {
+			width: 300px;
+			line-height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+		<p>5</p>
+		<p>6</p>
+		<p>7</p>
+		<p>8</p>
+		<p>9</p>
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+	</div>
+	<script src="js/common.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
