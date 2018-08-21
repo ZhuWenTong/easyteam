@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		onload = function() {
+			new Index();
+		}
+		class Index {
+			constructor() {
+				this.num = 0;
+				this.init();
+			}
+			init() {
+				this.asyncEnd();
+			}
+			asyncFirst() {
+				let num = this.num;
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+					    num += 10;
+					    console.log(num + ' --- asyncFirt');
+					    resolve(num);
+					}, 1000)
+				})
+			}
+			asyncSecond(num) {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+					    num *= 10;
+					    console.log(num + ' --- asyncSecond');
+					    resolve(num);
+					}, 1000)
+				})
+			}
+			async asyncEnd() {
+				let fir = await this.asyncFirst(),
+					sec = await this.asyncSecond(fir);
+				console.log(sec + ' --- asyncEnd');
+			}
+		}
+	</script>
+</body>
+</html>
