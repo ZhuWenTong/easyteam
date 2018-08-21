@@ -11,15 +11,25 @@
         padding: 0;
         margin: 0;
     }
+    
+    ul, ul li{
+        list-style: none;
+    }
 
     #wrap-content,
-    #wrap-transition {
+    #wrap-transition,
+    #wrap-nav {
         overflow: hidden;
     }
 
-    .content {
+    .content,
+    .transition,
+    .nav{
         width: 1300px;
         margin: 0 auto;
+    }
+
+    .content {
         overflow: hidden;
         display: flex;
         flex-direction: row;
@@ -66,8 +76,6 @@
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
-        width: 1300px;
-        margin: 0 auto;
         height: 300px;
         background: linear-gradient(to right, #EFF2F7, #C0CCDA);
     }
@@ -139,7 +147,36 @@
     .css3-3d-4:hover{
         transform: scale(1.2);
     }
+    
+    .nav ul{
+        overflow: hidden;
+        position: relative;
+        background: #e01810;
+    }
 
+    .nav ul li{
+        float: left;
+        position: relative;
+        padding: 0 10px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .nav ul div{
+        position: absolute;
+        width: 80px;
+        height: 40px;
+        background: #f00;
+        left: 0;
+        top: 0;
+        transition: all 1s;
+    }
+
+    .nav ul li:hover div{
+        width: 100%;
+        left: 100%;
+    }
     </style>
 </head>
 
@@ -161,6 +198,18 @@
             <div class="css3-3d-2">旋转</div>
             <div class="css3-3d-3">缩放</div>
             <div class="css3-3d-4">缩放</div>
+        </div>
+    </div>
+    <div id="wrap-nav">
+        <div class="nav">
+            <ul>
+                <div></div>
+                <li>Product</li>
+                <li>Version</li>
+                <li>Story</li>
+                <li>Value</li>
+                <li>Interface</li>
+            </ul>
         </div>
     </div>
 </body>
