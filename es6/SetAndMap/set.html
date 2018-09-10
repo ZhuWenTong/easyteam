@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Set</title>
+</head>
+<body>
+	<div>
+		<p>基本用法</p>
+		<p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+		<p>Set 本身是一个构造函数，用来生成 Set 数据结构。</p>
+	</div>
+	<script>
+		onload = function() {
+			new DemoSet();
+		}
+		class DemoSet {
+			constructor() {
+				this.init();
+			}
+			init() {
+				const s = new Set();
+				// 通过add方法向Set结构加入成员
+				[1, 1, 2, 3, 3, 3].forEach(i => s.add(i));
+				console.log(s)
+				for(let i of s) {
+					console.log(i) // 1 2 3
+				}
+
+				const s1 = new Set([1,1,2,2,3]);
+				console.log([...s1], s1.size);
+				console.log('--------- demo1 --------')
+
+				const s2 = new Set(document.querySelectorAll('p'));
+				console.log(s2.size) // 3
+				console.log('--------- demo2 --------')
+
+				//数组去重 
+				console.log([...new Set([1, 1, 1, 2, 2, 3])])
+				console.log(Array.from(new Set([1, 1, 1, 2, 2])))
+				console.log('--------- 去重 --------')
+
+				let s3 = new Set(),
+					a = NaN,
+					b = NaN;
+				s3.add(a);
+				s3.add(b);
+				console.log(s3); //Set{NaN} 表明在Set内部两个NaN相等
+				console.log('--------- demo3 --------')
+
+				let s4 = new Set();
+				s4.add({});
+				s4.add({});
+				console.log(s4.size); // 2 表明两个对象总是不相等的
+				console.log('--------- demo4 --------')
+
+				console.log('--------- 属性和方法 --------') 
+				// Set.prototype.constructor 构造函数 Set
+				// Set.prototype.size Set示例成员总数
+				// add(value) 添加某个值 返回Set本身
+				// delete(value) 删除某个值 返回布尔值 表示是否删除成功
+				// has(value) 返回布尔值 表示该值是否Set成员
+				// clear() 清除所有成员 没有返回值
+				const s5 = new Set();
+				s5.add(1).add(2).add(2);
+				console.log(s5.size) // 2
+				console.log(s5.has(2), s5.has(3)); // true false
+				s5.delete(2);
+				console.log(s5.has(2)); // false
+				console.log('--------- demo5 --------')
+
+				console.log('--------- 遍历操作 --------')
+				// keys() 返回键名
+				// values() 返回键值
+				// entries() 返回键值对
+				// forEach() 使用回调函数遍历每个成员
+				
+				let s6 = new Set(['a', 'b', 'c']);
+				for(let i of s6.keys()) {
+					console.log(i) // a b c
+				}
+				for(let i of s6.values()) {
+					console.log(i) // a b c
+				}
+				for(let i of s6.entries()) {
+					console.log(i) // ['a', 'a'] ['b', 'b'] ['c', 'c']
+				}
+				// Set结构没有键名 只有键值(或者键名键值是同一个值) 所以keys() values() 行为一致
+				// Set结构默认可遍历 默认遍历器生成函数就是values()
+				console.log(Set.prototype[Symbol.iterator] === Set.prototype.values); // true
+				//因此可以省略values方法 直接用 for...of遍历Set
+				for(let i of s6) {
+					console.log(i)
+				}
+				console.log('--------- demo6 --------')
+
+				console.log('--------- 应用 --------')
+
+				let s7 = new Set([1, 2, 3, 4]);
+				s7 = new Set([...s7].map(i => i + 1));
+				console.log(s7) // Set{2, 4, 6}
+				s7 = new Set([...s7].filter(i => (i % 2) == 0));
+				console.log(s7) // Set{2, 4}
+				console.log('--------- demo7 --------')
+
+				console.log('--------- 并集 交集 差集 --------')
+				let c = new Set([1, 2, 3, 4]),
+					d = new Set([3, 4, 5, 6]);
+				let union = new Set([...c, ...d]); // 并集
+				console.log([...union])
+				let intersect = new Set([...c].filter(i => d.has(i))); // 交集
+				console.log([...intersect]);
+				let difference = new Set([...c].filter(i => !d.has(i)));
+				console.log([...difference]);
+				console.log('--------- demo8 --------')
+			}
+		}
+	</script>
+</body>
+</html>
